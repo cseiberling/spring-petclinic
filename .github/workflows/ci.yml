@@ -58,8 +58,9 @@ jobs:
               analyze -t scan -p /github/workspace \
                 -a Spring-Petclinic \
                 -m org.springframework.samples \
-                -s Spring-Petclinic
-                --rescan
+                -f spring-petclinic
+                -s Spring-Petclinic \
+                --rescan \
                 --expunge-scan-sessions
                 
       - name: Send Build Info (with build log)
