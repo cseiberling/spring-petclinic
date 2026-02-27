@@ -59,6 +59,8 @@ jobs:
                 -a Spring-Petclinic \
                 -m org.springframework.samples \
                 -s Spring-Petclinic
+                --rescan
+                --expunge-scan-sessions
                 
       - name: Send Build Info (with build log)
         if: always()
