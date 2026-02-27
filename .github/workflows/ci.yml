@@ -5,11 +5,11 @@ on:
   push:
     branches:
       - renovate/**
-      - codelogic
+      #- codelogic
   pull_request:
     branches:
       - renovate/**
-      - codelogic
+      #- codelogic
   # Allow manual runs
   workflow_dispatch:
   
