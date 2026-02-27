@@ -1,0 +1,36 @@
+name: CodeLogic Scan
+
+on:
+  # Run on any push/pull to a Renovate branch or release-3.6-codelogic
+  push:
+    branches:
+      - renovate/**
+      - codelogic
+  pull_request:
+    branches:
+      - renovate/**
+      - codelogic
+  # Allow manual runs
+  workflow_dispatch:
+  
+jobs:
+  build-and-scan:
+    name: Build + CodeLogic Scan
+    runs-on: ubuntu-latest
+    environment: CodeLogic Scan Env
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # IMPORTANT: no Maven cache => avoid "No space left on device" on caching
+      - name: Set up JDK 17 (no cache)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Build and test
+        shell: bash
+        run: |
+          mvn -B -ntp clean verify 
