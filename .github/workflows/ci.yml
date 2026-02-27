@@ -58,7 +58,7 @@ jobs:
               analyze -t scan -p /github/workspace \
                 -a Spring-Petclinic \
                 -m org.springframework.samples \
-                -f spring-petclinic
+                -f spring-petclinic \
                 -s Spring-Petclinic \
                 --rescan \
                 --expunge-scan-sessions
